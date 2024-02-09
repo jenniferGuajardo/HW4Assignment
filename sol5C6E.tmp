@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=3 uid="uid://bw5h1behfq4v"]
+
+[ext_resource type="Texture2D" uid="uid://m87ck3d75wuc" path="res://stars-galaxy-space-4k-qc.jpg" id="1_xhvd0"]
+[ext_resource type="Texture2D" uid="uid://34jvu2xiwhe0" path="res://sun.png" id="2_ls3i5"]
+[ext_resource type="Script" path="res://RotateAltered.gd" id="3_sir35"]
+[ext_resource type="Script" path="res://Rotate.gd" id="3_x2gmp"]
+[ext_resource type="Texture2D" uid="uid://bfq3876b0auog" path="res://earth.png" id="4_cvj5f"]
+[ext_resource type="Texture2D" uid="uid://bv8ar2aq5d061" path="res://moon.png" id="5_v6q5g"]
+[ext_resource type="Texture2D" uid="uid://biuvee5i2ir7m" path="res://mars.png" id="6_umx1b"]
+[ext_resource type="Texture2D" uid="uid://bns5sgvudhnl2" path="res://uranus.png" id="7_1scu8"]
+[ext_resource type="Texture2D" uid="uid://dphj400it0rtp" path="res://venus.png" id="8_gikd5"]
+[ext_resource type="Texture2D" uid="uid://da84vq5souqtg" path="res://cube.png" id="9_iq43c"]
+[ext_resource type="Texture2D" uid="uid://bctfvjqqsrxr3" path="res://hexigons.png" id="10_x1t6l"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Stars-galaxy-space-4k-qc" type="Sprite2D" parent="."]
+position = Vector2(588, 289)
+scale = Vector2(0.337494, 0.33633)
+texture = ExtResource("1_xhvd0")
+
+[node name="Sun - Image" type="Sprite2D" parent="."]
+position = Vector2(585, 325)
+scale = Vector2(0.195947, 0.192532)
+texture = ExtResource("2_ls3i5")
+script = ExtResource("3_x2gmp")
+rotation_speed = 0.003
+
+[node name="Sun - Gravity Center - Far Away" type="Node2D" parent="."]
+position = Vector2(585, 323)
+script = ExtResource("3_x2gmp")
+rotation_speed = 0.02
+
+[node name="Uranus" type="Sprite2D" parent="Sun - Gravity Center - Far Away"]
+position = Vector2(-406, -189)
+scale = Vector2(0.161572, 0.161572)
+texture = ExtResource("7_1scu8")
+script = ExtResource("3_sir35")
+rotation_speed = 0.03
+
+[node name="Hexigons" type="Sprite2D" parent="Sun - Gravity Center - Far Away"]
+position = Vector2(-352.458, -32.625)
+scale = Vector2(0.134576, 0.231045)
+skew = 0.31765
+texture = ExtResource("10_x1t6l")
+script = ExtResource("3_sir35")
+rotation_speed = 2.0
+
+[node name="Moon2" type="Sprite2D" parent="Sun - Gravity Center - Far Away/Hexigons"]
+position = Vector2(523.559, -867.255)
+scale = Vector2(0.227117, 0.129886)
+texture = ExtResource("5_v6q5g")
+script = ExtResource("3_sir35")
+rotation_speed = 0.77
+
+[node name="Sun - Gravity Center - Medium Speed" type="Node2D" parent="."]
+position = Vector2(585, 323)
+script = ExtResource("3_x2gmp")
+rotation_speed = 0.03
+
+[node name="Earth" type="Sprite2D" parent="Sun - Gravity Center - Medium Speed"]
+position = Vector2(-83.5743, -183.07)
+scale = Vector2(0.0853661, 0.0825456)
+texture = ExtResource("4_cvj5f")
+script = ExtResource("3_sir35")
+rotation_speed = -0.2
+
+[node name="Moon" type="Sprite2D" parent="Sun - Gravity Center - Medium Speed/Earth"]
+position = Vector2(-345.188, 964.178)
+scale = Vector2(0.86297, 0.847836)
+texture = ExtResource("5_v6q5g")
+script = ExtResource("3_sir35")
+rotation_speed = 0.2
+
+[node name="Cube" type="Sprite2D" parent="Sun - Gravity Center - Medium Speed"]
+position = Vector2(-248, -9)
+scale = Vector2(0.0488404, 0.0488404)
+texture = ExtResource("9_iq43c")
+script = ExtResource("3_sir35")
+rotation_speed = -0.5
+
+[node name="Sun - Gravity Center - Close" type="Node2D" parent="."]
+position = Vector2(585, 323)
+script = ExtResource("3_sir35")
+rotation_speed = 0.06
+
+[node name="skewedMars" type="Sprite2D" parent="Sun - Gravity Center - Close"]
+position = Vector2(-79, 120)
+scale = Vector2(0.0858765, 0.0888378)
+skew = -0.570723
+texture = ExtResource("6_umx1b")
+script = ExtResource("3_x2gmp")
+rotation_speed = 0.05
+
+[node name="Moon" type="Sprite2D" parent="Sun - Gravity Center - Close/skewedMars"]
+position = Vector2(169.435, 537.079)
+scale = Vector2(0.326107, 0.320388)
+texture = ExtResource("5_v6q5g")
+
+[node name="Moon2" type="Sprite2D" parent="Sun - Gravity Center - Close/skewedMars"]
+position = Vector2(-232.724, 396.2)
+scale = Vector2(0.254023, 0.245191)
+texture = ExtResource("5_v6q5g")
+
+[node name="Venus" type="Sprite2D" parent="Sun - Gravity Center - Close"]
+position = Vector2(131, -11)
+rotation = 1.31598
+scale = Vector2(0.0816667, 0.0816667)
+texture = ExtResource("8_gikd5")
+script = ExtResource("3_x2gmp")
+rotation_speed = 0.07
+
+[node name="Moon2" type="Sprite2D" parent="Sun - Gravity Center - Close/Venus"]
+position = Vector2(-250.541, -425.081)
+scale = Vector2(0.23029, 0.222283)
+texture = ExtResource("5_v6q5g")
+
+[node name="Moon3" type="Sprite2D" parent="Sun - Gravity Center - Close/Venus"]
+position = Vector2(586.877, -364.461)
+scale = Vector2(0.295288, 0.285021)
+texture = ExtResource("5_v6q5g")
